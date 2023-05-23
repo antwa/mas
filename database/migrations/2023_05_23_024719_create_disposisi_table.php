@@ -11,19 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('surat_masuk', function (Blueprint $table) {
+        Schema::create('disposisi', function (Blueprint $table) {
             $table->id();
             $table->uuid("pub_id")->default(\Illuminate\Support\Str::uuid());
-            $table->string("no_surat",50)->unique();
-            $table->string("dari",100);
-            $table->mediumText("isi_singkat")->nullable();
-            $table->string("jenis",100)->nullable();
-            $table->string("prihal",100);
-            $table->date("tgl_surat");
-            $table->date("tgl_arsip");
-            $table->text("keterangan")->nullable();
-            $table->enum('status_disposisi', ['y', 't'])->default('t');
-            $table->text("file")->nullable();
+            $table->unsignedBigInteger('id_surat');
+            $table->text("isi");
+            $table->string("sifat",100);
+            $table->date("batas_waktu",100);
+            $table->date("catatan",100);
             $table->softDeletes();
             $table->timestamps();
             $table->unsignedBigInteger('created_by')->nullable();
@@ -38,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('surat_masuk');
+        Schema::dropIfExists('disposisi');
     }
 };

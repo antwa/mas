@@ -11,25 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('surat_masuk', function (Blueprint $table) {
+        Schema::create('instansi', function (Blueprint $table) {
             $table->id();
             $table->uuid("pub_id")->default(\Illuminate\Support\Str::uuid());
-            $table->string("no_surat",50)->unique();
-            $table->string("dari",100);
-            $table->mediumText("isi_singkat")->nullable();
-            $table->string("jenis",100)->nullable();
-            $table->string("prihal",100);
-            $table->date("tgl_surat");
-            $table->date("tgl_arsip");
-            $table->text("keterangan")->nullable();
-            $table->enum('status_disposisi', ['y', 't'])->default('t');
-            $table->text("file")->nullable();
+            $table->string("nama",250);
+            $table->text("alamat");
+            $table->string("kepala");
+            $table->string("no_kepala");
+            $table->string("website");
+            $table->string("email");
+            $table->string("telpon");
             $table->softDeletes();
             $table->timestamps();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->foreign("created_by")->references('id')->on("users");
             $table->foreign("updated_by")->references('id')->on("users");
+
         });
     }
 
@@ -38,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('surat_masuk');
+        Schema::dropIfExists('instansi');
     }
 };
