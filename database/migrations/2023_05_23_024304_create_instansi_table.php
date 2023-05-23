@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("no_kepala");
             $table->string("website");
             $table->string("email");
-            $table->string("telpon");
+            $table->string("telpon",20);
             $table->softDeletes();
             $table->timestamps();
             $table->unsignedBigInteger('created_by')->nullable();

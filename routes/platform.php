@@ -100,8 +100,21 @@ Route::screen('/charts/examples/charts', ExampleChartsScreen::class)->name('plat
 Route::screen('/cards/examples/cards', ExampleCardsScreen::class)->name('platform.example.cards');
 
 //Route::screen('idea', Idea::class, 'platform.screens.idea');
-Route::screen('instansi', \App\Orchid\Screens\InstansiScreen::class)->name('platform.instansi')->breadcrumbs(function (Trail $trail){
+Route::screen('instansi', \App\Orchid\Screens\Instansi\InstansiListScreen::class)->name('platform.data.instansi')->breadcrumbs(function (Trail $trail){
     return $trail
         ->parent('platform.index')
         ->push('instansi');
-});;
+});
+
+Route::screen('instansi/create', \App\Orchid\Screens\Instansi\InstansiNewScreen::class)
+    ->name('platform.data.instansi.create')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.data.instansi')
+        ->push(__('Create'), route('platform.data.instansi.create')));
+
+Route::screen('instansi/edit', \App\Orchid\Screens\Instansi\InstansiEditScreen::class)
+    ->name('platform.data.instansi.edit')
+    ->breadcrumbs(fn (Trail $trail) => $trail
+        ->parent('platform.data.instansi')
+        ->push(__('Edit'), route('platform.data.instansi.edit')));
+

@@ -4,10 +4,7 @@ namespace App\Orchid\Screens;
 
 use App\Models\Instansi;
 use App\Orchid\Layouts\Instansi\InstansiListLayout;
-use App\Orchid\Layouts\User\UserFiltersLayout;
-use App\Orchid\Layouts\User\UserListLayout;
 use Illuminate\Http\Request;
-use Orchid\Platform\Models\User;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Input;
@@ -63,7 +60,6 @@ class InstansiScreen extends Screen
                 ->modal('instansiModal')
                 ->method('create')
                 ->icon('plus'),
-
         ];
     }
 
@@ -119,10 +115,6 @@ class InstansiScreen extends Screen
                         ->type('number')
                         ->placeholder('Masukan nomor telpon instansi')
                         ->help('NIP Kepala Instansi yang akan dibuat.'),
-
-
-
-
             ]))
                 ->title('Tambah Instansi')
                 ->applyButton('Simpan'),
@@ -137,7 +129,6 @@ class InstansiScreen extends Screen
      */
     public function create(Request $request)
     {
-        // Validate form data, save task to database, etc.
         $request->validate([
             'i.nama' => 'required|max:250',
             'i.alamat' => 'required',
@@ -170,7 +161,6 @@ class InstansiScreen extends Screen
      */
     public function remove(Request $request): void
     {
-//        Instansi::findOrFail($request->get('id'))->delete();
         Instansi::where('pub_id',$request->get('id'))->firstOrFail()->delete();
         Toast::info(__('Data was removed'));
     }

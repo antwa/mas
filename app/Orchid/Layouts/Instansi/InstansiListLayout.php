@@ -18,7 +18,7 @@ class InstansiListLayout extends Table
     /**
      * @var string
      */
-    public $target = 'instansi';
+    public $target = 'data';
 
     /**
      * @return TD[]
@@ -65,7 +65,7 @@ class InstansiListLayout extends Table
                     ->icon('bs.three-dots-vertical')
                     ->list([
                         Link::make(__('Edit'))
-                            ->route('platform.systems.users.edit', $data->pub_id)
+                            ->route('platform.data.instansi.edit', $data->pub_id)
                             ->icon('bs.pencil'),
                         Button::make(__('Delete'))
                             ->icon('bs.trash3')

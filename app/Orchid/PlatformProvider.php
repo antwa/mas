@@ -37,7 +37,7 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Instansi')
                 ->icon('bs.book')
                 ->title('Main')
-                ->route('platform.instansi'),
+                ->route('platform.data.instansi'),
 
             Menu::make(__('Users'))
                 ->icon('bs.people')
