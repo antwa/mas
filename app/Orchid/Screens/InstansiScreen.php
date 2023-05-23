@@ -84,10 +84,10 @@ class InstansiScreen extends Screen
                     ->placeholder('Nama Instansi')
 //                    ->popover('Masukan Nama Instansi')
                     ->help('Nama Instansi yang akan dibuat.'),
-                Quill::make('i.alamat')
+                TextArea::make('i.alamat')
                     ->title('Alamat')
                     ->required()
-                    ->toolbar(["text", "color", "header", "list", "format", "media"])
+                    ->rows(5)
                     ->placeholder('Alamat Instansi')
                     ->help('Alamat Instansi yang akan dibuat.'),
                 Input::make('i.kepala')
@@ -150,7 +150,7 @@ class InstansiScreen extends Screen
 
         $model = new Instansi();
 
-        $model->name = $request->input('i.nama');
+        $model->nama = $request->input('i.nama');
         $model->alamat = $request->input('i.alamat');
         $model->kepala = $request->input('i.kepala');
         $model->no_kepala = $request->input('i.no_kepala');
