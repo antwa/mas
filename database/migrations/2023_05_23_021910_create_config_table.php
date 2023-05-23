@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name', 100)->nullable();
             $table->string('value', 255)->nullable();
             $table->text('file')->nullable();
-            $table->enum('type', ['system', 'default', 'user'])->nullable();
+            $table->enum('type', ['system', 'default', 'user'])->default('default');
             $table->softDeletes();
             $table->timestamps();
         });
