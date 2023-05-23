@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('disposisi', function (Blueprint $table) {
             $table->id();
-            $table->uuid("pub_id")->default(\Illuminate\Support\Str::uuid());
+            $table->uuid("pub_id");
             $table->unsignedBigInteger('id_surat');
             $table->text("isi");
             $table->string("sifat",100);

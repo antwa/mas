@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('surat_keluar', function (Blueprint $table) {
             $table->id();
-            $table->uuid("pub_id")->default(\Illuminate\Support\Str::uuid());
+            $table->uuid("pub_id");
             $table->string("no_surat",50);
             $table->string("dari",100);
             $table->string("tujuan",100);

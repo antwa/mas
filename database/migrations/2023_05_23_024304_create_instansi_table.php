@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('instansi', function (Blueprint $table) {
             $table->id();
-            $table->uuid("pub_id")->default(\Illuminate\Support\Str::uuid());
+            $table->uuid("pub_id");
             $table->string("nama",250);
             $table->text("alamat");
             $table->string("kepala");

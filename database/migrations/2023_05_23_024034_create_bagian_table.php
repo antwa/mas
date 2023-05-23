@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('bagian', function (Blueprint $table) {
             $table->id();
-            $table->uuid("pub_id")->default(\Illuminate\Support\Str::uuid());
+            $table->uuid("pub_id");
             $table->string("nama",100);
             $table->string("kepala_bagian",100);
             $table->string("kode_surat",5);

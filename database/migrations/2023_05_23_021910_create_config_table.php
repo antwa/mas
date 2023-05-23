@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('config', function (Blueprint $table) {
             $table->id();
-            $table->uuid("pub_id")->default(\Illuminate\Support\Str::uuid());;
+            $table->uuid("pub_id");
             $table->string("key", 200);
             $table->string('name', 100)->nullable();
             $table->string('value', 255)->nullable();
